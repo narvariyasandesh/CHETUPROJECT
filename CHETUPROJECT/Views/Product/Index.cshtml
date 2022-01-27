@@ -1,0 +1,45 @@
+﻿@using CHETUPROJECT.Models;
+
+<div class="container">
+	<div class=row>
+	<div class="col-3 bg-danger">
+		<table class="table table-bordered">
+			<tr>
+				<th>Category</th>
+			</tr>
+			
+			@foreach(var cate in Model)
+			{
+			<tr>
+				<td><a asp-action="ProductList" asp-controller="Product" asp-route-id="@cate.Id"> @cate.categorie_name </a></td>
+			</tr>
+			}
+		</table>
+
+	</div>
+	<div class="col-9 bg-light">
+		<a asp-action="Create" asp-controller="Product" class="btn btn-outline-warning">Create</a>
+		<table class="table table-bordered">
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Discount</th>
+				<th>Image</th>
+			</tr>
+			@foreach(var cus in ViewBag.product)
+			{
+			<tr>
+				<td>@cus.Id</td>
+				<td>@cus.Name </td>
+				<td>@cus.Description</td>
+				<td>@cus.Price</td>
+				<td>@cus.discount</td>
+				<td><img src="@cus.ImageUrl" height="60" width="60" /></td>
+			</tr>
+			}
+		</table>
+	</div>
+	</div>
+</div>
